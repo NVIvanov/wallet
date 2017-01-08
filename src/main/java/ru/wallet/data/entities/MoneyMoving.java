@@ -28,6 +28,10 @@ public class MoneyMoving {
     @ManyToOne
     private Wallet wallet;
 
+    @NotNull
+    @ManyToOne
+    private MoneyMovingCategory category;
+
     public Long getId() {
         return id;
     }
@@ -66,5 +70,13 @@ public class MoneyMoving {
 
     public void setWallet(Wallet wallet) {
         this.wallet = wallet;
+    }
+
+    public MoneyMovingCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MoneyMovingCategory category) {
+        this.category = category;
     }
 }
