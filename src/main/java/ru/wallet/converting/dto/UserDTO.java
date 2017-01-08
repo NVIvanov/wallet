@@ -2,6 +2,8 @@ package ru.wallet.converting.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * @author nivanov
  *         on 04.01.17.
@@ -9,7 +11,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserDTO {
-    private String username, password;
+    @NotNull
+    private String username;
+    private String password;
 
     public String getUsername() {
         return username;

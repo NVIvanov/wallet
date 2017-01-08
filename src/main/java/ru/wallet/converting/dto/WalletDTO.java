@@ -2,6 +2,7 @@ package ru.wallet.converting.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 /**
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class WalletDTO {
+    @NotNull
     private Long id;
     private String title, currency, type, username;
     private BigDecimal balance;

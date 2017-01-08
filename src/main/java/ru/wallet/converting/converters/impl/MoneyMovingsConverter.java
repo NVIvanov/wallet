@@ -18,6 +18,7 @@ public abstract class MoneyMovingsConverter<T extends MoneyMoving> implements Co
         dto.setEventTime(source.getEventTime());
         dto.setUserComment(source.getUserComment());
         dto.setWalletId(source.getWallet().getId());
+        dto.setCategory(source.getCategory().getTitle());
         return dto;
     }
 

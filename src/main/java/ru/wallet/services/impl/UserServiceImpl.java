@@ -1,6 +1,8 @@
 package ru.wallet.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import ru.wallet.converting.converters.Converter;
 import ru.wallet.converting.dto.UserDTO;
@@ -53,5 +55,10 @@ public class UserServiceImpl implements UserService {
             return converter.convert(user);
         }else
             throw new IllegalStateException(USER_EXISTS);
+    }
+
+    @Override
+    public String currentUsername() {
+        return ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUsername();
     }
 }

@@ -2,6 +2,7 @@ package ru.wallet.converting.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -11,10 +12,13 @@ import java.time.LocalDateTime;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MoneyMovingDTO {
-    private Long id, walletId;
+    @NotNull
+    private Long id;
+    private Long walletId;
     private LocalDateTime eventTime;
     private BigDecimal value;
     private String userComment;
+    private String category;
 
     public Long getId() {
         return id;
@@ -54,5 +58,13 @@ public class MoneyMovingDTO {
 
     public void setUserComment(String userComment) {
         this.userComment = userComment;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
